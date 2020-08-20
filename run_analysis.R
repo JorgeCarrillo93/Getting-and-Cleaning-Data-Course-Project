@@ -1,11 +1,13 @@
 #Get the DATA
 filesPath <- "D:/USERS/OneDrive/Documentos/R Files/Course 3/UCI HAR Dataset"
 setwd(filesPath)
+if(!file.exists("./data")){dir.create("./data")}
+fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+download.file(fileUrl,destfile="./data/Dataset.zip",method="curl")
+unzip(zipfile="./data/Dataset.zip",exdir="./data")
 
 #Load the required packages
 library(dplyr)
-library(data.table)
-library(tidyr)
 
 #Read the data
 
